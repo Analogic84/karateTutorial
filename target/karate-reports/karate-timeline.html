@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"apiREST\/karateTest[1:3]","start":1714637044224,"end":1714637045059,"title":"apiREST\/karateTest[1:3] 10:04:04.224-10:04:05.059 GET test case"},{"id":2,"group":1,"content":"apiREST\/karateTest[2:11]","start":1714637045070,"end":1714637045320,"title":"apiREST\/karateTest[2:11] 10:04:05.070-10:04:05.320 POST test case"},{"id":3,"group":1,"content":"apiREST\/karateTest[3:18]","start":1714637045329,"end":1714637045497,"title":"apiREST\/karateTest[3:18] 10:04:05.329-10:04:05.497 POST test case, case 2"},{"id":4,"group":1,"content":"apiREST\/karateTest[4:32]","start":1714637045507,"end":1714637045681,"title":"apiREST\/karateTest[4:32] 10:04:05.507-10:04:05.681 DELETE test case"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
